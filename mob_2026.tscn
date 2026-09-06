@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bjdatix3cwbob"]
+
+[ext_resource type="PackedScene" uid="uid://bumlqapnv7p1s" path="res://wheel.tscn" id="1_br8cq"]
+[ext_resource type="Script" uid="uid://f47qktipkyu4" path="res://mob_1.gd" id="1_t7vh6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_xihvg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbvo3"]
+albedo_color = Color(0.03137255, 0.16470589, 0.48235294, 1)
+
+[node name="Mob-2026" type="Node3D" unique_id=1244622716]
+
+[node name="Mob-1" type="Node3D" parent="." unique_id=1459468516]
+script = ExtResource("1_t7vh6")
+wheel_front_left = NodePath("Wheels/Lf/wheelLF")
+wheel_front_right = NodePath("Wheels/Rf/wheelRF")
+wheel_back_left = NodePath("Wheels/Lb/wheelLB")
+wheel_back_right = NodePath("Wheels/Rb/wheelRB")
+
+[node name="mesh-body" type="MeshInstance3D" parent="Mob-1" unique_id=407253967]
+transform = Transform3D(2, 0, 0, 0, 0.2, 0, 0, 0, 4, 0, 0.3353231, 0)
+mesh = SubResource("BoxMesh_xihvg")
+surface_material_override/0 = SubResource("StandardMaterial3D_pbvo3")
+
+[node name="Wheels" type="Node3D" parent="Mob-1" unique_id=1491079312]
+
+[node name="Lb" type="Node3D" parent="Mob-1/Wheels" unique_id=1417328748]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.3, 0, -1.2)
+
+[node name="wheelLB" parent="Mob-1/Wheels/Lb" unique_id=1711209458 instance=ExtResource("1_br8cq")]
+
+[node name="Lf" type="Node3D" parent="Mob-1/Wheels" unique_id=57559158]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.3, 0, 1.2)
+
+[node name="wheelLF" parent="Mob-1/Wheels/Lf" unique_id=2041166354 instance=ExtResource("1_br8cq")]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.21101749, 0)
+
+[node name="Rb" type="Node3D" parent="Mob-1/Wheels" unique_id=1755730614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0, -1.2)
+
+[node name="wheelRB" parent="Mob-1/Wheels/Rb" unique_id=2087343472 instance=ExtResource("1_br8cq")]
+
+[node name="Rf" type="Node3D" parent="Mob-1/Wheels" unique_id=936324102]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, -0.44264632, 1.2)
+
+[node name="wheelRF" parent="Mob-1/Wheels/Rf" unique_id=14165387 instance=ExtResource("1_br8cq")]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.22082958, 0)

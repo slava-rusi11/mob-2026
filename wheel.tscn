@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bumlqapnv7p1s"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6k0tg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd21p"]
+albedo_color = Color(0.72, 0.70800006, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mqlwr"]
+
+[node name="wheel" type="Node3D" unique_id=1711209458]
+
+[node name="mesh-wheel" type="MeshInstance3D" parent="." unique_id=1180969122]
+transform = Transform3D(-8.742278e-08, -0.1, 0, 2, -4.371139e-09, 0, 0, 0, 2, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6k0tg")
+surface_material_override/0 = SubResource("StandardMaterial3D_hd21p")
+
+[node name="mesh-cube" type="MeshInstance3D" parent="." unique_id=1665168936]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 1, -0.14372551, 0, 0)
+mesh = SubResource("BoxMesh_mqlwr")
