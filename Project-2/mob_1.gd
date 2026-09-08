@@ -70,27 +70,26 @@ func _update_engine(throttle: float, braking: bool) -> void:
 	engine_force = 0.0
 	brake = 0.0
 
-	# Тормоз (Space) — приоритет
 	if braking:
 		brake = brake_force
 		return
 
 	if throttle > 0.0:
 		if _speed_forward < -1.0:
-			# Катимся назад, жмём «вперёд» → сначала тормозим
 			brake = brake_force
-		elif _speed_forward < max_speed:
-			engine_force = throttle * max_engine_force
+		else:
+			# Плавная отсечка: последние 2 м/с до max_speed сила линейно гасится
+			var cutoff := clampf((max_speed - _speed_forward) / 2.0, 0.0, 1.0)
+			engine_force = throttle * max_engine_force * cutoff
 
 	elif throttle < 0.0:
 		if _speed_forward > 1.0:
-			# Едем вперёд, жмём «назад» → тормозим, реверс включится почти с места
 			brake = brake_force
-		elif _speed_forward > -max_reverse_speed:
-			engine_force = throttle * max_reverse_force
+		else:
+			var cutoff := clampf((-max_reverse_speed - _speed_forward) / 1.5, 0.0, 1.0)
+			engine_force = throttle * max_reverse_force * cutoff
 
 	else:
-		# Ничего не жмём и почти остановились — не даём ползти
 		if absf(_speed_forward) < 0.5:
 			brake = parking_brake
 

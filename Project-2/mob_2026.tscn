@@ -15,8 +15,10 @@ albedo_color = Color(0.03137255, 0.16470589, 0.48235294, 1)
 
 [node name="Telega" type="VehicleBody3D" parent="." unique_id=2059863780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.27990413)
-mass = 300.0
+mass = 100.0
 script = ExtResource("1_t7vh6")
+max_engine_force = 400.0
+max_speed = 50.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Telega" unique_id=1218704287]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.013549805, 0.32827926, 0.018920898)
@@ -28,9 +30,13 @@ mesh = SubResource("BoxMesh_xihvg")
 surface_material_override/0 = SubResource("StandardMaterial3D_pbvo3")
 
 [node name="RL" type="VehicleWheel3D" parent="Telega" unique_id=651993559]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3, 0, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, -1.2)
+use_as_traction = true
+use_as_steering = true
 wheel_radius = 1.0
-suspension_stiffness = 50.0
+suspension_stiffness = 36.0
+damping_compression = 0.6
+damping_relaxation = 0.7
 
 [node name="mesh-RL" parent="Telega/RL" unique_id=1711209458 instance=ExtResource("1_br8cq")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -43,7 +49,9 @@ suspension_stiffness = 50.0
 transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [node name="RR" type="VehicleWheel3D" parent="Telega" unique_id=416368354]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3, 0, -1.2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -1.2)
+use_as_traction = true
+use_as_steering = true
 wheel_radius = 1.0
 suspension_stiffness = 50.0
 
