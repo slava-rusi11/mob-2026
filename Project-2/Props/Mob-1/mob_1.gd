@@ -43,11 +43,18 @@ func _physics_process(delta: float) -> void:
 	var braking     := Input.is_action_pressed("brake") # Тормоз.
 
 	# Скорость «вперёд» = проекция скорости на ось −Z тележки
-	_speed_forward = linear_velocity.dot(-global_transform.basis.z)
+	_speed_forward = linear_velocity.dot(global_transform.basis.z)
 	speed_changed.emit(absf(_speed_forward) * 3.6)
 
 	_update_steering(steer_input, delta)
 	_update_engine(throttle, braking)
+	
+	# -------|
+	# Дебаг  |
+	#--------:
+	if Engine.get_physics_frames() % 60 == 0:
+		print("speed=%.2f  engine=%.1f  brake=%.1f  damp=%.2f" %
+			[_speed_forward, engine_force, brake, linear_damp])
 
 
 # ─────────────── Руль ───────────────
@@ -76,17 +83,20 @@ func _update_engine(throttle: float, braking: bool) -> void:
 
 	if throttle > 0.0:
 		if _speed_forward < -1.0:
+			# Катимся назад, жмём «вперёд» → сначала тормозим
 			brake = brake_force
 		else:
-			# Плавная отсечка: последние 2 м/с до max_speed сила линейно гасится
+			# Плавная отсечка: последние 2 м/с до max_speed сила гасится
 			var cutoff := clampf((max_speed - _speed_forward) / 2.0, 0.0, 1.0)
 			engine_force = throttle * max_engine_force * cutoff
 
 	elif throttle < 0.0:
 		if _speed_forward > 1.0:
+			# Едем вперёд, жмём «назад» → тормозим, реверс включится почти с места
 			brake = brake_force
 		else:
-			var cutoff := clampf((-max_reverse_speed - _speed_forward) / 1.5, 0.0, 1.0)
+			# Исправлено: было (-max_reverse_speed - _speed_forward) — знак перепутан
+			var cutoff := clampf((max_reverse_speed + _speed_forward) / 1.5, 0.0, 1.0)
 			engine_force = throttle * max_reverse_force * cutoff
 
 	else:

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ca3t5tjwe66wf"]
 
-[ext_resource type="PackedScene" uid="uid://bjdatix3cwbob" path="res://mob_2026.tscn" id="1_yin6k"]
+[ext_resource type="PackedScene" uid="uid://bjdatix3cwbob" path="res://Props/Mob-1/mob_2026.tscn" id="1_yin6k"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xihvg"]
 size = Vector3(99.5883, 4.4692802, 98.958534)
@@ -25,11 +25,8 @@ albedo_color = Color(0.44856936, 0.60681504, 0.3599336, 1)
 transform = Transform3D(0.70112604, -0.04552448, 0.7115826, -0.17241423, 0.95752215, 0.23113954, -0.6918783, -0.2847451, 0.6634944, -0.5053469, 2.478621, 7.198904)
 shadow_enabled = true
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1723438979]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.8778305, 12.612142, 18.8848)
-
 [node name="Mob-2026" parent="." unique_id=1244622716 instance=ExtResource("1_yin6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9016533, 18.760986)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9016533, 30.68209)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2065641639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
@@ -45,7 +42,7 @@ mesh = SubResource("BoxMesh_xihvg")
 surface_material_override/0 = SubResource("StandardMaterial3D_pbvo3")
 
 [node name="box" type="StaticBody3D" parent="." unique_id=1327263860]
-transform = Transform3D(0.9819766, -0.1890026, 0, 0.1890026, 0.9819766, 0, 0, 0, 1, -1.8493773, 1.1712955, -9.887829)
+transform = Transform3D(0.9819766, -0.1890026, 0, 0.1890026, 0.9819766, 0, 0, 0, 1, -1.8493773, 1.1712955, 11.17342)
 disable_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="box" unique_id=475364343]
