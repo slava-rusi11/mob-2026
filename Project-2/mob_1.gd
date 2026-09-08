@@ -38,9 +38,9 @@ var _speed_forward := 0.0  # скорость вдоль «вперёд» (−Z)
 
 func _physics_process(delta: float) -> void:
 	# get_axis(отрицательное действие, положительное) → −1…+1
-	var steer_input := Input.get_axis("turn_right", "turn_left")
-	var throttle := Input.get_axis("drive_backward", "drive_forward")
-	var braking := Input.is_action_pressed("brake")
+	var steer_input := Input.get_axis("ui_right", "ui_left")
+	var throttle    := Input.get_axis("ui_down", "ui_up")
+	var braking     := Input.is_action_pressed("brake") # Тормоз.
 
 	# Скорость «вперёд» = проекция скорости на ось −Z тележки
 	_speed_forward = linear_velocity.dot(-global_transform.basis.z)
