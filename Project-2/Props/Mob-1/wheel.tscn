@@ -3,7 +3,7 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_6k0tg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hd21p"]
-albedo_color = Color(0.72, 0.70800006, 0, 1)
+albedo_color = Color(0.49411693, 0.078171775, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_mqlwr"]
 
