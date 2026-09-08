@@ -8,7 +8,16 @@
 albedo_color = Color(0.04084427, 0.19778223, 0.3098808, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xihvg"]
-size = Vector3(99.76376, 4.0926514, 99.798904)
+size = Vector3(99.5883, 4.4692802, 98.958534)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pbvo3"]
+size = Vector3(33.96236, 1, 19.842804)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yin6k"]
+size = Vector3(1.7032471, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnap6"]
+albedo_color = Color(0.44856936, 0.60681504, 0.3599336, 1)
 
 [node name="Scene1" type="Node2D" unique_id=1718640740]
 
@@ -20,10 +29,12 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 0.9814606, 0.1916643, 0, -0.1916643, 0.9814606, 0, 10.394182, 48.330658)
 
 [node name="Mob-2026" parent="." unique_id=1244622716 instance=ExtResource("1_yin6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.98881173, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2110405, 13.928101)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2065641639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+disable_mode = 1
+input_capture_on_drag = true
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody3D" unique_id=2111137616]
 transform = Transform3D(100, 0, 0, 0, 4, 0, 0, 0, 100, 0, 0, 0)
@@ -31,5 +42,18 @@ mesh = SubResource("BoxMesh_xihvg")
 surface_material_override/0 = SubResource("StandardMaterial3D_pbvo3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1128607841]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1124115, 0.04083252, 0.011894226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109565735, -0.08235288, -0.30957794)
 shape = SubResource("BoxShape3D_xihvg")
+
+[node name="box" type="StaticBody3D" parent="." unique_id=1327263860]
+transform = Transform3D(0.9819766, -0.1890026, 0, 0.1890026, 0.9819766, 0, 0, 0, 1, -1.8608326, 1.2308121, -9.887829)
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="box" unique_id=475364343]
+transform = Transform3D(0.99999833, -3.7252903e-07, 0, 3.7252903e-07, 0.99999833, 0, 0, 0, 1, -2.7706742, 1.8026657, -0.1302948)
+shape = SubResource("BoxShape3D_pbvo3")
+
+[node name="Ground" type="MeshInstance3D" parent="box" unique_id=1493678813]
+transform = Transform3D(20.000042, 0, 0, -3.33786e-06, 1, 0, 0, 0, 20, -2.851057, 1.7957466, 0)
+mesh = SubResource("BoxMesh_yin6k")
+surface_material_override/0 = SubResource("StandardMaterial3D_lnap6")
