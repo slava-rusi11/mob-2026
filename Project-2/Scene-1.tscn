@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://bjdatix3cwbob" path="res://mob_2026.tscn" id="1_yin6k"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_xihvg"]
+size = Vector3(99.5883, 4.4692802, 98.958534)
+
 [sub_resource type="BoxMesh" id="BoxMesh_xihvg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbvo3"]
 albedo_color = Color(0.04084427, 0.19778223, 0.3098808, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_xihvg"]
-size = Vector3(99.5883, 4.4692802, 98.958534)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pbvo3"]
 size = Vector3(33.96236, 1, 19.842804)
@@ -26,27 +26,26 @@ transform = Transform3D(0.70112604, -0.04552448, 0.7115826, -0.17241423, 0.95752
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1723438979]
-transform = Transform3D(1, 0, 0, 0, 0.9814606, 0.1916643, 0, -0.1916643, 0.9814606, 0, 10.394182, 48.330658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86787605, 45.2446)
 
 [node name="Mob-2026" parent="." unique_id=1244622716 instance=ExtResource("1_yin6k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2110405, 13.928101)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.2110405, 36.663696)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=2065641639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 disable_mode = 1
-input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1128607841]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109565735, -0.08235288, -0.30957794)
+shape = SubResource("BoxShape3D_xihvg")
 
 [node name="Ground" type="MeshInstance3D" parent="StaticBody3D" unique_id=2111137616]
 transform = Transform3D(100, 0, 0, 0, 4, 0, 0, 0, 100, 0, 0, 0)
 mesh = SubResource("BoxMesh_xihvg")
 surface_material_override/0 = SubResource("StandardMaterial3D_pbvo3")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1128607841]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.109565735, -0.08235288, -0.30957794)
-shape = SubResource("BoxShape3D_xihvg")
-
 [node name="box" type="StaticBody3D" parent="." unique_id=1327263860]
-transform = Transform3D(0.9819766, -0.1890026, 0, 0.1890026, 0.9819766, 0, 0, 0, 1, -1.8608326, 1.2308121, -9.887829)
+transform = Transform3D(0.9819766, -0.1890026, 0, 0.1890026, 0.9819766, 0, 0, 0, 1, -1.8493773, 1.1712955, -9.887829)
 disable_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="box" unique_id=475364343]
