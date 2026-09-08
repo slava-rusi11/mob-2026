@@ -12,13 +12,17 @@ config_version=5
 
 config/name="Mob-2026"
 run/main_scene="uid://ca3t5tjwe66wf"
-config/features=PackedStringArray("4.7", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Mob-2026"
 
 [physics]
 
